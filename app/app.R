@@ -4,10 +4,10 @@ library(magrittr)
 ships <- read.csv("ships.csv")
 
 ui <- shinyUI(fluidPage(
-  
-  leaflet::leafletOutput("map"),
-  DT::dataTableOutput("tbl")
-  
+  fluidRow(
+    column(6, leaflet::leafletOutput("map")),
+    column(6, DT::dataTableOutput("tbl"))
+  )
 ))
 
 server <- shinyServer(function(input, output) {
