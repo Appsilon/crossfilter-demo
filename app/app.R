@@ -27,7 +27,8 @@ server <- shinyServer(function(input, output) {
   })
   
   output$tbl <- DT::renderDataTable({
-    DT::datatable(data_map())
+    DT::datatable(data_map(), extensions = "Scroller", style = "bootstrap", class = "compact", width = "100%",
+                  options = list(deferRender = TRUE, scrollY = 300, scroller = TRUE))
   })
   
 })
